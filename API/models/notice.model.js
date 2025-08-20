@@ -1,0 +1,9 @@
+const mongoose = require('mongoose');
+const noticeSchema = new mongoose.Schema({
+school: { type: mongoose.Schema.ObjectId, ref: 'School' },
+title: { type: String, required: true },
+message : { type: String, required: true },
+audiance: { type: String, enum: [ 'Students', 'Teachers'], required: true },
+createAt : { type: Date, default: new Date() },
+});
+module.exports = mongoose.model('Notice', noticeSchema);
